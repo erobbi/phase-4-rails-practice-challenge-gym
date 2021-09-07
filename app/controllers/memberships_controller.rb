@@ -1,0 +1,16 @@
+class MembershipsController < ApplicationController
+
+    def create
+        membership = Membership.create!(membership_params) # this is strong params
+        render json: membership, status: :created
+    end
+
+
+    #completing this strong params
+
+    private 
+    
+    def membership_params
+        params.permit(:client_id, :gym_id, :charge)
+    end
+end
